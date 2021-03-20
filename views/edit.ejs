@@ -1,0 +1,60 @@
+<% include ./partials/layouts %>
+  <body>
+    <% include ./partials/message %>
+		<style>
+				.mr-3{
+					margin-right: 30px;
+				}
+				.mt-2{
+					margin-top: 20px;
+				}
+		</style>
+    <div>
+      <form action="/edit" method="POST">
+        <div class="mb-2">
+          <label  class="form-label">Student_id</label>
+          <input
+          class="form-control"
+          id="student_id"
+          name="student_id"
+          value="<%= typeof student_id != 'undefined' ? student_id : '' %>"
+          >
+        </div>
+        <div class="mb-2">
+          <label  class="form-label">Firstname</label>
+          <input
+          class="form-control"
+           id="firstname"
+           name="firstname"
+           value="<%= typeof firstname != 'undefined' ? firstname : '' %>"
+          >
+          <div id="emailHelp" class="form-text">ไม่ต้องใส่คำนำหน้า</div>
+        </div>
+        <div class="mb-2">
+          <label  class="form-label">Lastname</label>
+          <input
+          class="form-control"
+          id="lastname"
+           name="lastname"
+           value="<%= typeof lastname != 'undefined' ? lastname : '' %>"
+           >
+        </div>
+
+
+<div class="d-flex mt-2">
+		<div class="mr-3">
+				<input type="hidden" name="_id" value="<%= typeof _id != 'undefined' ? _id : '' %>" />
+        <button type="submit" class="btn btn-primary">Edit</button>
+      </form>
+			</div>
+        <form action="/" method="GET">
+          <button class="btn btn-success" type="submit">Back</button>
+        </form>
+				</div>
+    </div>
+
+
+
+  </body>
+</html>
+

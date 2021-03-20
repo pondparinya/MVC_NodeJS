@@ -1,0 +1,65 @@
+<% include ./partials/layouts %>
+<style>
+	.mr-3{
+		margin-right: 30px;
+	}
+</style>
+<body>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th scope="col">No.</th>
+			<th scope="col">Student_ID</th>
+			<th scope="col">Year</th>
+			<th scope="col">FirstName</th>
+			<th scope="col">LastName</th>
+			<th scope="col">Edit</th>
+			<th scope="col">Delete</th>
+		</tr>
+	</thead>
+	<% if (data.length > 0 ){ %>
+			<% var i = 1 %>
+		<% data.forEach(function(a){ %>
+	<tbody>
+		<tr>
+			<td><%= i %></td>
+			<td><%= a.student_id %></td>
+			<td>ชั้นปีที่ <%= a.level %></td>
+			<td><%= a.firstname %></td>
+			<td><%= a.lastname %></td>
+
+      <td>
+        <form action="/edit/<%= a._id %>" method="GET">
+          <input type="hidden" name="" value="" />
+          <button class="btn btn-outline-secondary" type="submit">edit</button>
+        </form>
+      </td>
+			<td>
+				<form action="/delete" method="POST">
+					<input type="hidden" name="_id" value="<%= a._id %>" />
+					<button class="btn btn-outline-danger" type="submit">delete</button>
+				</form>
+			</td>
+		</tr>
+
+</tbody>
+				<% i++ %> <% }) %>
+		<% } %>
+
+</table>
+<div class="d-flex justify-content-center">
+	<div class="mr-3">
+	<form action="/add" method="GET">
+		<button class="btn btn-primary" type="submit">Add</button>
+	</form>
+	</div>
+	<form action="/random" method="GET">
+		<button class="btn btn-success" type="submit">Random</button>
+	</form>
+</div>
+</body>
+<!-- <div class="d-grid gap-2 col-1 mx-auto">
+	<form action="/random" method="GET">
+		<button class="btn btn-success" type="submit">Random</button>
+	</form>
+</div> -->

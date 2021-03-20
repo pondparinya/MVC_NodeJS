@@ -1,0 +1,27 @@
+<% include ./partials/layouts %>
+<body>
+	<table class="table table-hover">
+		<thead align="center">
+			<tr>
+				<th scope="col">FirstName</th>
+				<th scope="col">VS</th>
+				<th scope="col">LastName</th>
+			</tr>
+		</thead>
+		<tbody align="center">
+			<% if (data.length > 0 ) { %> <% for (var i = 0 ; i < data.length ; ) { %>
+			<tr>
+				<td class="col-sm-4"><%= data[i] %></td>
+				<% i ++ %>
+				<td class="col-sm-4">vs</td>
+
+				<td class="col-sm-4"><%= data[i] %></td>
+				<% i++ %>
+			</tr>
+			<% }} %>
+		</tbody>
+	</table>
+	<form action="/" method="GET">
+		<button class="btn btn-success" type="submit">Back</button>
+	</form>
+</body>
